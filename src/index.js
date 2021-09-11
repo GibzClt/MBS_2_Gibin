@@ -7,17 +7,19 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import NotFound from './common/NotFound';
 import 'typeface-roboto';
 import BookShow from './screens/bookshow/BookShow';
+import Modal from "./common/modals/Modal"
 
 
 ReactDOM.render(
-    <BrowserRouter>
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/detail" component={Details} />
-        <Route path="/bookshow" component={BookShow} />
-        <Route component={NotFound} />
-      </Switch>
-    </BrowserRouter>
+    // <BrowserRouter>
+    //   <Switch>
+    //     <Route path="/" exact component={Home} />
+    //     <Route path="/detail" component={Details} />
+    //     <Route path="/bookshow" component={BookShow} />
+    //     <Route component={NotFound} />
+    //   </Switch>
+    // </BrowserRouter>
+    <Modal />
 ,
   document.getElementById('root')
 );
