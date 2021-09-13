@@ -178,8 +178,12 @@ function Modal({shouldOpen}) {
       console.log(Object.values(helperTextContent[tab]));
       console.log(Object.values(helperTextContent[tab]).reduce((sum, item)=>sum + item)=== "")
       console.log(helperTextContent)
-      if(Object.values(helperTextContent[tab]).reduce((sum, item)=>sum + item)=== ""){
-        setRegistered(true);
+      if(Object.values(helperTextContent[tab]).reduce((sum, item)=>sum + item)=== "" ){
+        if(tab === "register"){
+          setRegistered(true);
+        }else{
+          setOpen(false);
+        }
       }else{
         setRegistered(false);
       }
