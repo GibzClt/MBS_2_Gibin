@@ -7,7 +7,6 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles(()=>({
   root :{
     marginTop : "10%",
-    // display : "none",
   }
 
 }))
@@ -103,13 +102,11 @@ const valueActionCreator = (tabValue)=>{
   return {type : CHANGE_TAB_VALUE, tabValue,}
 }
 
-function Modal({shouldOpen}) {
-  // debugger;
-  // console.log(shouldOpen)
+function Modal({shouldOpen, checkLogin}) {
   const [open, setOpen] = useState(shouldOpen);
   const [registered, setRegistered] = useState(false);
   
-  // console.log("open", open);
+
   const handleChange=(event, newValue)=>{
     dispatch(valueActionCreator(newValue))
   }
@@ -182,7 +179,10 @@ function Modal({shouldOpen}) {
         if(tab === "register"){
           setRegistered(true);
         }else{
+          alert("Succesfully logged in");
+          localStorage.setItem("login", true);
           setOpen(false);
+          checkLogin();
         }
       }else{
         setRegistered(false);
@@ -191,7 +191,7 @@ function Modal({shouldOpen}) {
   }
 
   return (
-    <ReactModal isOpen={open} style={modalStyle} onRequestClose={()=>setOpen(false)}>
+    <ReactModal isOpen={open} style={modalStyle} onRequestClose={()=>setOpen(false)} ariaHideApp={false} >
       <AppBar position="static" color="transparent">
         <Tabs value={formContent.tabValue} onChange={handleChange} aria-label="login/register tab" centered>
           <Tab label="Login" />

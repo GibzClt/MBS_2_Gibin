@@ -8,17 +8,29 @@ import { Link } from "react-router-dom";
 import BookShow from "../../screens/bookshow/BookShow"
 import Modal from "../modals/Modal"
 
-
 function Header({showLogin, showBookShow}){
-  const [login, setLogin] = useState(false);
+  const [login, setLogin] = useState(localStorage.getItem("login"));
   const [modalOpen, setModalOpen] = useState(false);
   const history = useHistory();
-  // console.log(history)
   const setText=()=>login? "LOG OUT" : "LOGIN";
   const handleLogin=()=>{
-    setLogin(!login);
-    setModalOpen(!modalOpen);
+    let localStorageValue = localStorage.getItem("login");
+    let value;
+    if(localStorageValue){
+      localStorage.removeItem("login");
+      setLogin(false);
+      value = false;
+    }else{
+      value = true;
+    }
+    setModalOpen(value);
   }
+
+  const checkLogin=()=>{
+    let value = localStorage.getItem("login");
+    value? setLogin(true) : setLogin(false);
+  }
+
   const handleBookShow=()=>{
     login ? history.push("/bookshow") : null;
   }
@@ -46,7 +58,7 @@ function Header({showLogin, showBookShow}){
           </Button>
         )}
       </div>
-      {modalOpen && <Modal shouldOpen={modalOpen} />}
+      {modalOpen && <Modal shouldOpen={modalOpen} checkLogin={checkLogin} />}
     </div>
   )
 }
