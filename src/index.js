@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import NotFound from './common/NotFound';
 import 'typeface-roboto';
 import BookShow from './screens/bookshow/BookShow';
+import Modal from "./common/modals/Modal"
 
 
 ReactDOM.render(
@@ -18,6 +19,7 @@ ReactDOM.render(
         <Route component={NotFound} />
       </Switch>
     </BrowserRouter>
+    // <Modal />
 ,
   document.getElementById('root')
 );
