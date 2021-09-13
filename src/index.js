@@ -11,15 +11,15 @@ import Modal from "./common/modals/Modal"
 
 
 ReactDOM.render(
-    // <BrowserRouter>
-    //   <Switch>
-    //     <Route path="/" exact component={Home} />
-    //     <Route path="/detail" component={Details} />
-    //     <Route path="/bookshow" component={BookShow} />
-    //     <Route component={NotFound} />
-    //   </Switch>
-    // </BrowserRouter>
-    <Modal />
+    <BrowserRouter>
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/detail" component={Details} />
+        <Route path="/bookshow" component={BookShow} />
+        <Route component={NotFound} />
+      </Switch>
+    </BrowserRouter>
+    // <Modal />
 ,
   document.getElementById('root')
 );
