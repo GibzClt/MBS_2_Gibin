@@ -12,23 +12,28 @@ function Header({showLogin, showBookShow}){
   const [login, setLogin] = useState(localStorage.getItem("login"));
   const [modalOpen, setModalOpen] = useState(false);
   const history = useHistory();
+  
   const setText=()=>login? "LOG OUT" : "LOGIN";
   const handleLogin=()=>{
     let localStorageValue = localStorage.getItem("login");
-    let value;
     if(localStorageValue){
       localStorage.removeItem("login");
-      setLogin(false);
-      value = false;
+      setLogin(false)
+      setModalOpen(false);
     }else{
-      value = true;
+      setModalOpen(true);
     }
-    setModalOpen(value);
+  }
+
+  const close=()=>{
+    setModalOpen(false);
   }
 
   const checkLogin=()=>{
-    let value = localStorage.getItem("login");
-    value? setLogin(true) : setLogin(false);
+    localStorage.setItem("login", true);
+    setLogin(true);
+    setModalOpen(false);
+    console.log("Congrats, you logged in ");
   }
 
   const handleBookShow=()=>{
@@ -58,7 +63,7 @@ function Header({showLogin, showBookShow}){
           </Button>
         )}
       </div>
-      {modalOpen && <Modal shouldOpen={modalOpen} checkLogin={checkLogin} />}
+      {modalOpen && <Modal shouldOpen={modalOpen} checkLogin={checkLogin} close={close} />}
     </div>
   )
 }

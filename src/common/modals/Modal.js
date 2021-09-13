@@ -8,7 +8,6 @@ const useStyles = makeStyles(()=>({
   root :{
     marginTop : "10%",
   }
-
 }))
 
 const modalStyle = {
@@ -102,10 +101,9 @@ const valueActionCreator = (tabValue)=>{
   return {type : CHANGE_TAB_VALUE, tabValue,}
 }
 
-function Modal({shouldOpen, checkLogin}) {
+function Modal({shouldOpen, checkLogin, close}) {
   const [open, setOpen] = useState(shouldOpen);
   const [registered, setRegistered] = useState(false);
-  
 
   const handleChange=(event, newValue)=>{
     dispatch(valueActionCreator(newValue))
@@ -167,22 +165,15 @@ function Modal({shouldOpen, checkLogin}) {
 
   const handleSubmit = (e) =>{
     e.preventDefault();
-    console.log(e.target.lastChild.outerText)
     const {outerText} = e.target.lastChild;
     if(formContent.validate){
       let tab = outerText.toLowerCase();
-      console.log(tab);
-      console.log(Object.values(helperTextContent[tab]));
-      console.log(Object.values(helperTextContent[tab]).reduce((sum, item)=>sum + item)=== "")
-      console.log(helperTextContent)
       if(Object.values(helperTextContent[tab]).reduce((sum, item)=>sum + item)=== "" ){
         if(tab === "register"){
           setRegistered(true);
         }else{
-          alert("Succesfully logged in");
-          localStorage.setItem("login", true);
-          setOpen(false);
           checkLogin();
+          alert("Succesfully logged in");
         }
       }else{
         setRegistered(false);
@@ -190,8 +181,13 @@ function Modal({shouldOpen, checkLogin}) {
     }
   }
 
+  const handleClose=()=>{
+    setOpen(false);
+    close();
+  }
+
   return (
-    <ReactModal isOpen={open} style={modalStyle} onRequestClose={()=>setOpen(false)} ariaHideApp={false} >
+    <ReactModal isOpen={open} style={modalStyle} onRequestClose={()=>handleClose()} ariaHideApp={false} >
       <AppBar position="static" color="transparent">
         <Tabs value={formContent.tabValue} onChange={handleChange} aria-label="login/register tab" centered>
           <Tab label="Login" />
