@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router";
+import { useHistory, useLocation } from "react-router";
 import "./Header.css"
 import logo from "../../assets/logo.svg";
 import Button from '@material-ui/core/Button';
@@ -12,7 +12,8 @@ function Header({showLogin, showBookShow}){
   const [login, setLogin] = useState(localStorage.getItem("login"));
   const [modalOpen, setModalOpen] = useState(false);
   const history = useHistory();
-  
+  const query = useLocation().search;
+
   const setText=()=>login? "LOG OUT" : "LOGIN";
   const handleLogin=()=>{
     let localStorageValue = localStorage.getItem("login");
@@ -37,7 +38,7 @@ function Header({showLogin, showBookShow}){
   }
 
   const handleBookShow=()=>{
-    login ? history.push("/bookshow") : null;
+    login ? history.push(`/bookshow${query}`) : null;
   }
   return(
     <div className="header">
@@ -50,6 +51,7 @@ function Header({showLogin, showBookShow}){
             color="primary"
             variant="contained"
             onClick={handleBookShow}
+            query={query}
           ><Typography>BOOK SHOW</Typography>
           </Button>
         )}
