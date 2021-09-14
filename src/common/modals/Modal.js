@@ -7,9 +7,7 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles(()=>({
   root :{
     marginTop : "10%",
-    // display : "none",
   }
-
 }))
 
 const modalStyle = {
@@ -103,13 +101,10 @@ const valueActionCreator = (tabValue)=>{
   return {type : CHANGE_TAB_VALUE, tabValue,}
 }
 
-function Modal({shouldOpen}) {
-  // debugger;
-  // console.log(shouldOpen)
+function Modal({shouldOpen, checkLogin, close}) {
   const [open, setOpen] = useState(shouldOpen);
   const [registered, setRegistered] = useState(false);
-  
-  // console.log("open", open);
+
   const handleChange=(event, newValue)=>{
     dispatch(valueActionCreator(newValue))
   }
@@ -142,7 +137,7 @@ function Modal({shouldOpen}) {
             }
           }; break;
           case "Contact Number" : {
-            let regex = /\d{10}/;
+            let regex = /^\d{10}$/;
             if(!regex.test(value) && helperTextContent[tab].hasOwnProperty(type)){
               helperTextContent[tab][type] = "Please enter a valid contact number";
               return true;
@@ -170,19 +165,15 @@ function Modal({shouldOpen}) {
 
   const handleSubmit = (e) =>{
     e.preventDefault();
-    console.log(e.target.lastChild.outerText)
     const {outerText} = e.target.lastChild;
     if(formContent.validate){
       let tab = outerText.toLowerCase();
-      console.log(tab);
-      console.log(Object.values(helperTextContent[tab]));
-      console.log(Object.values(helperTextContent[tab]).reduce((sum, item)=>sum + item)=== "")
-      console.log(helperTextContent)
       if(Object.values(helperTextContent[tab]).reduce((sum, item)=>sum + item)=== "" ){
         if(tab === "register"){
           setRegistered(true);
         }else{
-          setOpen(false);
+          checkLogin();
+          alert("Succesfully logged in");
         }
       }else{
         setRegistered(false);
@@ -190,8 +181,13 @@ function Modal({shouldOpen}) {
     }
   }
 
+  const handleClose=()=>{
+    setOpen(false);
+    close();
+  }
+
   return (
-    <ReactModal isOpen={open} style={modalStyle} onRequestClose={()=>setOpen(false)}>
+    <ReactModal isOpen={open} style={modalStyle} onRequestClose={()=>handleClose()} ariaHideApp={false} >
       <AppBar position="static" color="transparent">
         <Tabs value={formContent.tabValue} onChange={handleChange} aria-label="login/register tab" centered>
           <Tab label="Login" />
