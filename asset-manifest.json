@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/mbs_2_gibin/static/css/main.098caa02.chunk.css",
-    "main.js": "/mbs_2_gibin/static/js/main.3b41e68b.chunk.js",
-    "main.js.map": "/mbs_2_gibin/static/js/main.3b41e68b.chunk.js.map",
-    "runtime-main.js": "/mbs_2_gibin/static/js/runtime-main.2614a92d.js",
-    "runtime-main.js.map": "/mbs_2_gibin/static/js/runtime-main.2614a92d.js.map",
-    "static/css/2.7fd55595.chunk.css": "/mbs_2_gibin/static/css/2.7fd55595.chunk.css",
-    "static/js/2.aa87d02d.chunk.js": "/mbs_2_gibin/static/js/2.aa87d02d.chunk.js",
-    "static/js/2.aa87d02d.chunk.js.map": "/mbs_2_gibin/static/js/2.aa87d02d.chunk.js.map",
-    "index.html": "/mbs_2_gibin/index.html",
-    "static/css/2.7fd55595.chunk.css.map": "/mbs_2_gibin/static/css/2.7fd55595.chunk.css.map",
-    "static/css/main.098caa02.chunk.css.map": "/mbs_2_gibin/static/css/main.098caa02.chunk.css.map",
-    "static/js/2.aa87d02d.chunk.js.LICENSE.txt": "/mbs_2_gibin/static/js/2.aa87d02d.chunk.js.LICENSE.txt",
-    "static/media/logo.f814612c.svg": "/mbs_2_gibin/static/media/logo.f814612c.svg",
-    "static/media/index.css": "/mbs_2_gibin/static/media/roboto-latin-900italic.ae5f802c.woff2"
+    "main.css": "/MBS_2_Gibin/static/css/main.098caa02.chunk.css",
+    "main.js": "/MBS_2_Gibin/static/js/main.3b41e68b.chunk.js",
+    "main.js.map": "/MBS_2_Gibin/static/js/main.3b41e68b.chunk.js.map",
+    "runtime-main.js": "/MBS_2_Gibin/static/js/runtime-main.286aa2ec.js",
+    "runtime-main.js.map": "/MBS_2_Gibin/static/js/runtime-main.286aa2ec.js.map",
+    "static/css/2.a73b69f9.chunk.css": "/MBS_2_Gibin/static/css/2.a73b69f9.chunk.css",
+    "static/js/2.62ab2c67.chunk.js": "/MBS_2_Gibin/static/js/2.62ab2c67.chunk.js",
+    "static/js/2.62ab2c67.chunk.js.map": "/MBS_2_Gibin/static/js/2.62ab2c67.chunk.js.map",
+    "index.html": "/MBS_2_Gibin/index.html",
+    "static/css/2.a73b69f9.chunk.css.map": "/MBS_2_Gibin/static/css/2.a73b69f9.chunk.css.map",
+    "static/css/main.098caa02.chunk.css.map": "/MBS_2_Gibin/static/css/main.098caa02.chunk.css.map",
+    "static/js/2.62ab2c67.chunk.js.LICENSE.txt": "/MBS_2_Gibin/static/js/2.62ab2c67.chunk.js.LICENSE.txt",
+    "static/media/logo.f814612c.svg": "/MBS_2_Gibin/static/media/logo.f814612c.svg",
+    "static/media/index.css": "/MBS_2_Gibin/static/media/roboto-latin-900italic.ae5f802c.woff2"
   },
   "entrypoints": [
-    "static/js/runtime-main.2614a92d.js",
-    "static/css/2.7fd55595.chunk.css",
-    "static/js/2.aa87d02d.chunk.js",
+    "static/js/runtime-main.286aa2ec.js",
+    "static/css/2.a73b69f9.chunk.css",
+    "static/js/2.62ab2c67.chunk.js",
     "static/css/main.098caa02.chunk.css",
     "static/js/main.3b41e68b.chunk.js"
   ]
