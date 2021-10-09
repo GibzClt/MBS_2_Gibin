@@ -9,7 +9,7 @@ import 'typeface-roboto';
 import BookShow from './screens/bookshow/BookShow';
 
 ReactDOM.render(
-    <BrowserRouter>
+    <BrowserRouter basename="/MBS_2_Gibin">
       <Switch>
         <Route path="/" exact component={Home} /> {/* Home page */}
         <Route path="/detail" component={Details} />  {/* Detail page */}
